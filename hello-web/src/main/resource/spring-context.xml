@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="helloDAO" class="kr.co.company.hello.dao.HelloDAO" />
+	<bean id="helloService" class="kr.co.company.hello.service.HelloService">
+		<!-- 생성자로 객체 주입 -->
+		<constructor-arg ref="helloDAO"></constructor-arg>
+		<!-- setter로 객체 주입 -->
+		<property name="anotherDAO" ref="anotherDAO"></property>
+	</bean>
+	<bean id="anotherDAO" class="kr.co.company.hello.dao.AnotherDAO"></bean>
+	
+</beans>
