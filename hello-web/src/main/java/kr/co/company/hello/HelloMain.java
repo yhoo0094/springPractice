@@ -1,6 +1,8 @@
 package kr.co.company.hello;
 
+import kr.co.company.hello.service.BbsService;
 import kr.co.company.hello.service.HelloService;
+import kr.co.company.hello.vo.Article;
 
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -11,10 +13,8 @@ public class HelloMain {
 		
 		AbstractApplicationContext ctx = new ClassPathXmlApplicationContext("/spring-context.xml");
 		
-		HelloService dao = ctx.getBean("helloService", HelloService.class);
-		int result = dao.calcTwoNumbersAndSquare(5, 10);
-		
-		System.out.println(result);//결과 225
+		BbsService service = ctx.getBean("bbsService", BbsService.class);
+		service.registArticle(new Article()); //insert OK 출력
 	}
 
 }

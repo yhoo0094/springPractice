@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	
 	<bean id="helloDAO" class="kr.co.company.hello.dao.HelloDAO" />
 	<bean id="helloService" class="kr.co.company.hello.service.HelloService">
@@ -12,4 +14,6 @@
 	</bean>
 	<bean id="anotherDAO" class="kr.co.company.hello.dao.AnotherDAO"></bean>
 	
+	<!-- base-package 하위의 모든 component어노테이션(@Controller, @Service, @Repository, @Component...)이 붙은 클래스 스캔 -->
+	<context:component-scan base-package="kr.co.company.hello"></context:component-scan>
 </beans>
