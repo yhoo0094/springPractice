@@ -7,12 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>write OK</h1>
-	<ul>
-		<li>${article.articleId}</li>
-		<li>${article.author}</li>
-		<li>${article.title}</li>
-		<li>${article.content}</li>
-	</ul>
+	<h1>${fileName} 파일 업로드 완료되었습니다.</h1>
 </body>
 </html>
