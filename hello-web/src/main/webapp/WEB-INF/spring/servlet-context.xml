@@ -7,7 +7,12 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	
-	<context:component-scan base-package="kr.co.company.hello"></context:component-scan>
+	<!-- use-default-filters="false"해줘야 다른 Bean은 include 안 된다 -->
+	<context:component-scan base-package="kr.co.company.hello" use-default-filters="false">
+		<!-- Controller 빈만 포함 -->
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	
 	<mvc:annotation-driven />
 	
 	<!-- resources/**로 요청이 들어오면 controller를 타지 않고 /WEB-INF/resources/ 경로 하위의 파일로 response를 반환 -->
