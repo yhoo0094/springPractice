@@ -3,6 +3,8 @@ package kr.co.company.hello.controller;
 import kr.co.company.hello.service.BbsService;
 import kr.co.company.hello.vo.Article;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,12 +20,17 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/bbs")
 public class BbsController {
-
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired
 	private BbsService bbsService;
 	
 	@GetMapping("/")
 	public String index(){
+		//bbsService.testService();
+		//bbsService.registArticle(new Article(2, "kim", "test", "test"));
+		//logger.debug("test");
+		
 		return "index";
 	}
 	

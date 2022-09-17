@@ -18,15 +18,17 @@ public class ArticleDAOTest {
 	@Autowired
 	private ArticleDAO dao;
 	
-	@Test 
-	@Ignore //테스트에서 제외
+	@Test
+	@Ignore
 	public void testInsertArticle() {
-		dao.insertArticle(null);
+		Article article = new Article(100, "tester", "tester", "tester");
+		dao.insertArticle(article);
 	}
 	
 	@Test
 	public void testSelectArticleById(){
-		Article article = dao.selectArticleById(null);
+		Article article = dao.selectArticleById("2");
+		System.out.println(article);
 		Assert.assertTrue(article.getAuthor().equals("lee"));
 	}
 }
